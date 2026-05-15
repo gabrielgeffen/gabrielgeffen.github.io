@@ -2,41 +2,216 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Publications - Gabriel Geffen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications – Gabriel Geffen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --navy: #1a2235;
+            --slate: #2c3e55;
+            --amber: #c8922a;
+            --amber-light: #e8b04a;
+            --cream: #f7f4ef;
+            --text: #2d2d2d;
+            --muted: #6b7280;
+            --border: #ddd8cf;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            max-width: 800px;
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        header { background: var(--navy); padding: 0 48px; }
+        .header-inner {
+            max-width: 900px; margin: 0 auto;
+            display: flex; align-items: center;
+            justify-content: space-between; height: 64px;
+        }
+        .site-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem; color: white; text-decoration: none;
         }
         nav a {
-            margin-right: 15px;
-            text-decoration: none;
-            color: black;
+            color: rgba(255,255,255,0.75); text-decoration: none;
+            font-size: 0.875rem; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            margin-left: 28px; transition: color 0.2s;
+        }
+        nav a:hover, nav a.active { color: var(--amber-light); }
+        .page-header {
+            background: var(--navy); color: white;
+            padding: 40px 48px 48px; border-bottom: 3px solid var(--amber);
+        }
+        .page-header-inner { max-width: 900px; margin: 0 auto; }
+        .page-header h1 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-top: 8px; }
+        .breadcrumb { color: var(--amber-light); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+        main { max-width: 900px; margin: 0 auto; padding: 52px 48px; }
+        .section { margin-bottom: 48px; }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem; color: var(--navy);
+            padding-bottom: 10px; border-bottom: 2px solid var(--border);
+            margin-bottom: 24px;
+        }
+        .pub-entry {
+            display: flex; gap: 18px;
+            padding: 20px 0; border-bottom: 1px solid var(--border);
+        }
+        .pub-entry:last-child { border-bottom: none; }
+        .pub-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem; color: var(--amber);
+            font-weight: 600; min-width: 32px;
+            padding-top: 2px;
+        }
+        .pub-content { flex: 1; }
+        .pub-title {
+            font-weight: 600; color: var(--navy);
+            font-size: 0.97rem; margin-bottom: 4px;
+            line-height: 1.4;
+        }
+        .pub-authors { color: var(--muted); font-size: 0.88rem; margin-bottom: 4px; }
+        .pub-venue { color: var(--slate); font-size: 0.88rem; font-style: italic; }
+        .pub-links { margin-top: 8px; display: flex; gap: 10px; flex-wrap: wrap; }
+        .pub-link {
+            font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
+            text-transform: uppercase; color: var(--amber);
+            text-decoration: none; border-bottom: 1px solid var(--amber);
+            padding-bottom: 1px; transition: color 0.2s;
+        }
+        .pub-link:hover { color: var(--amber-light); border-color: var(--amber-light); }
+        .status-badge {
+            display: inline-block; font-size: 0.72rem; font-weight: 600;
+            letter-spacing: 0.06em; text-transform: uppercase;
+            background: #fff3cd; color: #856404;
+            border: 1px solid #ffc107; padding: 2px 8px; border-radius: 2px;
+            margin-left: 8px; vertical-align: middle;
+        }
+        footer {
+            background: var(--navy); color: rgba(255,255,255,0.45);
+            text-align: center; padding: 28px; font-size: 0.82rem;
         }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="/">Home</a>
-    <a href="/research/">Research</a>
-    <a href="/publications/">Publications</a>
-    <a href="/presentations/">Presentations</a>
-    <a href="/contact/">Contact</a>
-</nav>
+<header>
+    <div class="header-inner">
+        <a href="/" class="site-name">Gabriel Geffen</a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/" class="active">Publications</a>
+            <a href="/presentations/">Presentations</a>
+            <a href="/contact/">Contact</a>
+        </nav>
+    </div>
+</header>
 
-<h1>Publications</h1>
+<div class="page-header">
+    <div class="page-header-inner">
+        <div class="breadcrumb">Publications</div>
+        <h1>Publications</h1>
+    </div>
+</div>
 
-<p>Peer-reviewed publications and conference papers:</p>
+<main>
+    <div class="section">
+        <h2>Refereed Journal Articles</h2>
 
-<p>
-Geffen, G., et al. (2025). Data-Driven Analysis of Environmental Impacts on Highway Performance. Transportation Research Record.
-</p>
+        <div class="pub-entry">
+            <div class="pub-number">J3</div>
+            <div class="pub-content">
+                <div class="pub-title">Leveraging Multisource Data for a Comprehensive Investigation of Split Failure Occurrences</div>
+                <div class="pub-authors"><strong>Gabriel Geffen</strong>, Pouya Jalali Khalilabadi, Bharat Pathivada, and Yao-Jan Wu</div>
+                <div class="pub-venue">Journal of Transportation Engineering, Part A: Systems, 152(6):04026028, 2026.</div>
+                <div class="pub-links"><a href="#" class="pub-link">Online Access</a></div>
+            </div>
+        </div>
 
-<p>
-[Add more publications here]
-</p>
+        <div class="pub-entry">
+            <div class="pub-number">J2</div>
+            <div class="pub-content">
+                <div class="pub-title">Novel Weather Severity Classifications Based on Speed Reductions Utilizing Machine Learning Techniques</div>
+                <div class="pub-authors"><strong>Gabriel Geffen</strong>, Mingfeng Shang, and Yao-Jan Wu</div>
+                <div class="pub-venue">Transportmetrica A: Transport Science, pp. 1–23, 2025.</div>
+                <div class="pub-links"><a href="#" class="pub-link">Online Access</a></div>
+            </div>
+        </div>
+
+        <div class="pub-entry">
+            <div class="pub-number">J1</div>
+            <div class="pub-content">
+                <div class="pub-title">Evaluation of Factors Influencing Ramp Metering Compliance Using Controller Event–Based Data</div>
+                <div class="pub-authors"><strong>Gabriel Geffen</strong>, Adrian Cottam, Henrick Haule, and Yao-Jan Wu</div>
+                <div class="pub-venue">Transportation Research Record, 2679(11):306–320, 2025.</div>
+                <div class="pub-links"><a href="#" class="pub-link">Online Access</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Manuscripts Under Review</h2>
+
+        <div class="pub-entry">
+            <div class="pub-number">JR3</div>
+            <div class="pub-content">
+                <div class="pub-title">Scenario-Aware Traffic Forecasting for Operational Decision Support: A Spatio-Temporal Foundation Model Approach <span class="status-badge">Under Review</span></div>
+                <div class="pub-authors">Agrim Sachdeva, <strong>Gabriel Geffen</strong>, Mingfeng Shang, and Yao-Jan Wu</div>
+                <div class="pub-venue">Information Systems Research</div>
+            </div>
+        </div>
+
+        <div class="pub-entry">
+            <div class="pub-number">JR2</div>
+            <div class="pub-content">
+                <div class="pub-title">Safety, Mobility, and Environmental Impacts of Driver-Assistance-Enabled Electric Vehicles: An Empirical Study <span class="status-badge">Under Review</span></div>
+                <div class="pub-authors"><strong>Gabriel Geffen</strong>, Jun Zhao, Mingfeng Shang, Shian Wang, and Yao-Jan Wu</div>
+                <div class="pub-venue">International Journal of Sustainable Transportation</div>
+            </div>
+        </div>
+
+        <div class="pub-entry">
+            <div class="pub-number">JR1</div>
+            <div class="pub-content">
+                <div class="pub-title">From Crash to Congestion: Predicting Post-Incident Speed Recovery Using Probe Data <span class="status-badge">Under Review</span></div>
+                <div class="pub-authors"><strong>Gabriel Geffen</strong>, Mingfeng Shang, and Yao-Jan Wu</div>
+                <div class="pub-venue">ITE Journal</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Technical Reports</h2>
+
+        <div class="pub-entry">
+            <div class="pub-number">R2</div>
+            <div class="pub-content">
+                <div class="pub-title">State of The Practice of a Data Management Office Within DOTs</div>
+                <div class="pub-authors">Mingfeng Shang, Yao-Jan Wu, and <strong>Gabriel Geffen</strong></div>
+                <div class="pub-venue">Arizona Department of Transportation, 2025.</div>
+                <div class="pub-links"><a href="#" class="pub-link">Online Access</a></div>
+            </div>
+        </div>
+
+        <div class="pub-entry">
+            <div class="pub-number">R1</div>
+            <div class="pub-content">
+                <div class="pub-title">Traffic Data Analytics Platform Development for TSMO: Statewide Mobility Analytics in Real-Time (SMART) Tool Expansion</div>
+                <div class="pub-authors"><strong>Gabriel Geffen</strong>, Adrian Cottam, and Yao-Jan Wu</div>
+                <div class="pub-venue">Arizona Department of Transportation, 2024.</div>
+                <div class="pub-links"><a href="#" class="pub-link">Online Access</a></div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>Gabriel Geffen · University of Arizona · gabriel9@arizona.edu</p>
+</footer>
 
 </body>
 </html>
