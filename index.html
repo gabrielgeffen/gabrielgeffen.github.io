@@ -2,58 +2,276 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabriel Geffen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --navy: #1a2235;
+            --slate: #2c3e55;
+            --amber: #c8922a;
+            --amber-light: #e8b04a;
+            --cream: #f7f4ef;
+            --text: #2d2d2d;
+            --muted: #6b7280;
+            --border: #ddd8cf;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            max-width: 800px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 400;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        header {
+            background: var(--navy);
+            color: white;
+            padding: 0 48px;
+        }
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        .site-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: none;
+            letter-spacing: 0.02em;
         }
         nav a {
-            margin-right: 15px;
+            color: rgba(255,255,255,0.75);
             text-decoration: none;
-            color: black;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-left: 28px;
+            transition: color 0.2s;
         }
-        h1 {
-            margin-bottom: 5px;
+        nav a:hover, nav a.active { color: var(--amber-light); }
+        .hero {
+            background: var(--navy);
+            color: white;
+            padding: 64px 48px 72px;
+            border-bottom: 3px solid var(--amber);
+        }
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-start;
+            gap: 48px;
+        }
+        .hero-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--amber);
+            flex-shrink: 0;
+            background: var(--slate);
+        }
+        .hero-photo-placeholder {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 3px solid var(--amber);
+            flex-shrink: 0;
+            background: var(--slate);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.75rem;
+            text-align: center;
+        }
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+        .hero-subtitle {
+            color: var(--amber-light);
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .hero-affil {
+            color: rgba(255,255,255,0.65);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+        .hero-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 20px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--amber);
+            color: white;
+        }
+        .btn-primary:hover { background: var(--amber-light); }
+        .btn-outline {
+            border: 1.5px solid rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.85);
+        }
+        .btn-outline:hover {
+            border-color: var(--amber-light);
+            color: var(--amber-light);
+        }
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 56px 48px;
+        }
+        .section { margin-bottom: 52px; }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+        }
+        p { margin-bottom: 14px; color: #444; }
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 12px;
+        }
+        .interest-tag {
+            background: white;
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--amber);
+            padding: 10px 14px;
+            font-size: 0.9rem;
+            border-radius: 2px;
+            color: var(--slate);
+        }
+        .highlight-box {
+            background: white;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--amber);
+            padding: 20px 24px;
+            border-radius: 2px;
+        }
+        .highlight-box p { margin-bottom: 0; }
+        footer {
+            background: var(--navy);
+            color: rgba(255,255,255,0.45);
+            text-align: center;
+            padding: 28px;
+            font-size: 0.82rem;
         }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="/">Home</a>
-    <a href="/research/">Research</a>
-    <a href="/publications/">Publications</a>
-    <a href="/presentations/">Presentations</a>
-    <a href="/contact/">Contact</a>
-</nav>
+<header>
+    <div class="header-inner">
+        <a href="/" class="site-name">Gabriel Geffen</a>
+        <nav>
+            <a href="/" class="active">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a href="/presentations/">Presentations</a>
+            <a href="/contact/">Contact</a>
+        </nav>
+    </div>
+</header>
 
-<h1>Gabriel Geffen</h1>
-<p><strong>PhD Candidate in Transportation Engineering</strong></p>
+<div class="hero">
+    <div class="hero-inner">
+        <!-- Replace the placeholder div below with:
+             <img src="/photo.jpg" alt="Gabriel Geffen" class="hero-photo">
+             once you add your photo to the repo root -->
+        <div class="hero-photo-placeholder">Your<br>Photo</div>
+        <div class="hero-text">
+            <h1>Gabriel Geffen</h1>
+            <div class="hero-subtitle">PhD Candidate · Civil Engineering</div>
+            <div class="hero-affil">
+                University of Arizona · Smart Transportation Laboratory<br>
+                Advisor: Dr. Yao-Jan Wu, P.E.
+            </div>
+            <div class="hero-links">
+                <a href="/Gabriel_Geffen_CV.pdf" class="btn btn-primary">
+                    ↓ Download CV
+                </a>
+                <a href="https://scholar.google.com" class="btn btn-outline" target="_blank">
+                    Google Scholar
+                </a>
+                <a href="https://linkedin.com" class="btn btn-outline" target="_blank">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
-<h2>About</h2>
-<p>
-I am a PhD candidate in Transportation Engineering focused on improving transportation system performance through data-driven methods. My research integrates transportation operations, safety, and intelligent transportation systems (ITS) to better understand and respond to real-world disruptions.
-</p>
+<main>
+    <div class="section">
+        <h2>About</h2>
+        <p>
+            I am a PhD candidate in Civil Engineering at the University of Arizona, working in the Smart Transportation Laboratory (STL) under the direction of Dr. Yao-Jan Wu. My dissertation focuses on <em>Emerging Technologies for Resilient Highway Operations: Implications for Traffic Predictions and Socially Compatible Driving</em>.
+        </p>
+        <p>
+            My research integrates transportation operations, safety, and intelligent transportation systems (ITS) to better understand and respond to real-world disruptions. I combine empirical data with advanced modeling and machine learning techniques to evaluate how environmental conditions, emerging vehicle technologies, and operational strategies impact roadway performance.
+        </p>
+        <p>
+            I am a recipient of the NSF Graduate Research Fellowship and the Dwight David Eisenhower Transportation Fellowship (FHWA), and a 2026 winner of the NOCoE TRB Student Contest.
+        </p>
+    </div>
 
-<p>
-My work emphasizes system-level analysis, combining empirical data with advanced modeling techniques to evaluate how environmental conditions, emerging vehicle technologies, and operational strategies impact roadway performance.
-</p>
+    <div class="section">
+        <h2>Research Interests</h2>
+        <div class="interests-grid">
+            <div class="interest-tag">Data-Driven Transportation Systems</div>
+            <div class="interest-tag">Traffic Control and Operations</div>
+            <div class="interest-tag">Transportation Safety &amp; Human Behavior</div>
+            <div class="interest-tag">Intelligent Transportation Systems</div>
+            <div class="interest-tag">Traffic Modeling, Forecasting &amp; Simulation</div>
+            <div class="interest-tag">Machine Learning &amp; Causal Inference</div>
+            <div class="interest-tag">Connected, Automated &amp; Electric Vehicles</div>
+            <div class="interest-tag">Transportation Cybersecurity &amp; Resilience</div>
+        </div>
+    </div>
 
-<h2>Research Interests</h2>
-<ul>
-    <li>Transportation Operations and Traffic Flow</li>
-    <li>Transportation Safety and Risk Analysis</li>
-    <li>Intelligent Transportation Systems (ITS)</li>
-    <li>Data-Driven Modeling and Prediction</li>
-    <li>Alternative Fuel Vehicles and System Impacts</li>
-</ul>
+    <div class="section">
+        <h2>Current Work</h2>
+        <div class="highlight-box">
+            <p>
+                My active research examines how driver-assistance-enabled electric vehicles affect safety, mobility, and environmental outcomes on Arizona highways, alongside developing spatio-temporal forecasting models for post-incident traffic speed recovery. I also serve as Lab Manager of the Smart Transportation Laboratory and contribute to ADOT- and NCHRP-sponsored projects on AI applications for transportation systems management.
+            </p>
+        </div>
+    </div>
+</main>
 
-<h2>Current Work</h2>
-<p>
-My current research investigates how environmental disruptions and evolving vehicle technologies influence highway performance, with an emphasis on developing data-driven tools to support real-time operational decision-making.
-</p>
+<footer>
+    <p>Gabriel Geffen · University of Arizona · gabriel9@arizona.edu</p>
+</footer>
 
 </body>
 </html>
