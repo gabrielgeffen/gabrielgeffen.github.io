@@ -2,55 +2,290 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Research - Gabriel Geffen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research – Gabriel Geffen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --navy: #1a2235;
+            --slate: #2c3e55;
+            --amber: #c8922a;
+            --amber-light: #e8b04a;
+            --cream: #f7f4ef;
+            --text: #2d2d2d;
+            --muted: #6b7280;
+            --border: #ddd8cf;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            max-width: 800px;
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        header {
+            background: var(--navy);
+            color: white;
+            padding: 0 48px;
+        }
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        .site-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: none;
         }
         nav a {
-            margin-right: 15px;
+            color: rgba(255,255,255,0.75);
             text-decoration: none;
-            color: black;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-left: 28px;
+            transition: color 0.2s;
+        }
+        nav a:hover, nav a.active { color: var(--amber-light); }
+        .page-header {
+            background: var(--navy);
+            color: white;
+            padding: 40px 48px 48px;
+            border-bottom: 3px solid var(--amber);
+        }
+        .page-header-inner { max-width: 900px; margin: 0 auto; }
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-top: 8px;
+        }
+        .page-header .breadcrumb {
+            color: var(--amber-light);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 52px 48px;
+        }
+        .section { margin-bottom: 52px; }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--navy);
+            margin-bottom: 14px;
+        }
+        .project-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--amber);
+            padding: 28px 28px 24px;
+            border-radius: 2px;
+            margin-bottom: 24px;
+        }
+        .project-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+        .project-card p { color: #555; margin-bottom: 12px; font-size: 0.95rem; }
+        .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
+            background: var(--cream);
+            border: 1px solid var(--border);
+            color: var(--slate);
+            padding: 3px 10px;
+            font-size: 0.78rem;
+            border-radius: 2px;
+            font-weight: 600;
+        }
+        .funded-projects h2 {
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 18px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        th {
+            background: var(--navy);
+            color: white;
+            padding: 10px 14px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #faf8f4; }
+        .sponsor-tag {
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+        footer {
+            background: var(--navy);
+            color: rgba(255,255,255,0.45);
+            text-align: center;
+            padding: 28px;
+            font-size: 0.82rem;
         }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="/">Home</a>
-    <a href="/research/">Research</a>
-    <a href="/publications/">Publications</a>
-    <a href="/presentations/">Presentations</a>
-    <a href="/contact/">Contact</a>
-</nav>
+<header>
+    <div class="header-inner">
+        <a href="/" class="site-name">Gabriel Geffen</a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/research/" class="active">Research</a>
+            <a href="/publications/">Publications</a>
+            <a href="/presentations/">Presentations</a>
+            <a href="/contact/">Contact</a>
+        </nav>
+    </div>
+</header>
 
-<h1>Research Projects</h1>
+<div class="page-header">
+    <div class="page-header-inner">
+        <div class="breadcrumb">Research</div>
+        <h1>Research Projects</h1>
+    </div>
+</div>
 
-<p>
-My research focuses on understanding and improving transportation system performance under real-world conditions.
-</p>
+<main>
+    <div class="section">
+        <p style="color:#555; margin-bottom: 32px;">My research focuses on improving transportation system performance and resilience through data-driven methods, with applications in traffic operations, safety analysis, and intelligent transportation systems.</p>
 
-<h2>Socially Compatible Driving</h2>
-<p>
-This project explores how automated and human-driven vehicles can better align with prevailing traffic behaviors to improve safety and flow.
-</p>
-<ul>
-    <li>Defines metrics for social compatibility in traffic streams</li>
-    <li>Evaluates impacts on safety and efficiency</li>
-    <li>Proposes data-driven integration strategies</li>
-</ul>
+        <div class="project-card">
+            <h3>Socially Compatible Driving with Automated Vehicles</h3>
+            <p>This project investigates how automated vehicles can better align with prevailing human driving behaviors to improve safety and traffic flow. I develop metrics for evaluating "social compatibility" in mixed traffic streams and propose data-driven strategies for integrating AVs into existing roadway environments.</p>
+            <div class="tag-list">
+                <span class="tag">Automated Vehicles</span>
+                <span class="tag">Traffic Flow</span>
+                <span class="tag">Safety</span>
+                <span class="tag">Behavioral Analysis</span>
+            </div>
+        </div>
 
-<h2>Environmental Impacts on Highway Performance</h2>
-<p>
-This project examines how weather and environmental disruptions affect traffic flow and system reliability.
-</p>
-<ul>
-    <li>Analyzes real-world traffic and weather data</li>
-    <li>Identifies performance degradation patterns</li>
-    <li>Supports operational response strategies</li>
-</ul>
+        <div class="project-card">
+            <h3>Environmental Impacts on Highway Performance</h3>
+            <p>Using machine learning techniques applied to real-world traffic and weather data, this work develops novel weather severity classifications based on observed speed reductions. The goal is to support operational response strategies that proactively manage traffic degradation under adverse conditions.</p>
+            <div class="tag-list">
+                <span class="tag">Weather &amp; Traffic</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Speed Prediction</span>
+                <span class="tag">TSMO</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>Post-Incident Traffic Speed Recovery</h3>
+            <p>This research develops predictive models for how traffic speeds recover following highway crashes, using probe vehicle data. The work spans from identifying key influencing factors to building systematic, data-driven tools for real-time operational decision support.</p>
+            <div class="tag-list">
+                <span class="tag">Incident Management</span>
+                <span class="tag">Probe Data</span>
+                <span class="tag">Speed Recovery</span>
+                <span class="tag">Prediction</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>Driver-Assistance-Enabled Electric Vehicles: Safety, Mobility &amp; Environment</h3>
+            <p>An empirical study quantifying the safety, mobility, and environmental impacts of ADAS-equipped electric vehicles on Arizona highways. This project bridges transportation electrification and driver assistance technology to understand their combined real-world effects.</p>
+            <div class="tag-list">
+                <span class="tag">Electric Vehicles</span>
+                <span class="tag">ADAS</span>
+                <span class="tag">Safety</span>
+                <span class="tag">Emissions</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>Split Failure Detection at Signalized Intersections</h3>
+            <p>Leveraging multisource data — including controller event logs — to investigate the occurrence and contributing factors of split failures at signalized intersections. Findings inform better signal timing and operational strategies for urban arterials.</p>
+            <div class="tag-list">
+                <span class="tag">Signal Operations</span>
+                <span class="tag">Controller Data</span>
+                <span class="tag">Arterials</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="funded-projects">
+        <h2>Sponsored Projects</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Project</th>
+                    <th>Sponsor</th>
+                    <th>Period</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>NCHRP 07-34:</strong> Artificial Intelligence for Transportation Systems Management and Operations Applications
+                        <div class="sponsor-tag">PI: Dr. Yao-Jan Wu · $450,000</div>
+                    </td>
+                    <td>NCHRP</td>
+                    <td>Apr 2024 – Oct 2026</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>SPR-788:</strong> Assessing the Consumption Costs of Motor Vehicles on Arizona Roads and Bridges
+                        <div class="sponsor-tag">PI: Dr. Tejo Bheemasetti · $400,000</div>
+                    </td>
+                    <td>ADOT</td>
+                    <td>Aug 2024 – Dec 2026</td>
+                </tr>
+                <tr>
+                    <td>
+                        Impact of Transportation Electrification on Air Quality and Health in Arizona
+                        <div class="sponsor-tag">PI: Dr. Chris Lim · $100,000</div>
+                    </td>
+                    <td>UA TRIF</td>
+                    <td>Aug 2024 – Sep 2025</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>SPR-792:</strong> State of the Practice of a Data Management Office Within DOTs
+                        <div class="sponsor-tag">PI: Dr. Mingfeng Shang · $55,000</div>
+                    </td>
+                    <td>ADOT</td>
+                    <td>Aug 2024 – Sep 2025</td>
+                </tr>
+                <tr>
+                    <td>
+                        Traffic Data Analytics Platform (SMART Tool Expansion)
+                        <div class="sponsor-tag">PI: Dr. Yao-Jan Wu · $200,000</div>
+                    </td>
+                    <td>ADOT</td>
+                    <td>Aug 2022 – Jul 2024</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<footer>
+    <p>Gabriel Geffen · University of Arizona · gabriel9@arizona.edu</p>
+</footer>
 
 </body>
 </html>
