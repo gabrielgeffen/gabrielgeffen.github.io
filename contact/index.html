@@ -1,43 +1,119 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact - Gabriel Geffen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact – Gabriel Geffen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            max-width: 800px;
+        :root {
+            --navy: #1a2235; --slate: #2c3e55;
+            --amber: #c8922a; --amber-light: #e8b04a;
+            --cream: #f7f4ef; --text: #2d2d2d;
+            --muted: #6b7280; --border: #ddd8cf;
         }
-        nav a {
-            margin-right: 15px;
-            text-decoration: none;
-            color: black;
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Source Sans 3', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; }
+        header { background: var(--navy); padding: 0 48px; }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .site-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: white; text-decoration: none; }
+        nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-left: 28px; transition: color 0.2s; }
+        nav a:hover, nav a.active { color: var(--amber-light); }
+        .page-header { background: var(--navy); color: white; padding: 40px 48px 48px; border-bottom: 3px solid var(--amber); }
+        .page-header-inner { max-width: 900px; margin: 0 auto; }
+        .page-header h1 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-top: 8px; }
+        .breadcrumb { color: var(--amber-light); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+        main { max-width: 900px; margin: 0 auto; padding: 52px 48px; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+        .contact-card {
+            background: white; border: 1px solid var(--border);
+            border-top: 3px solid var(--amber); padding: 24px 24px 20px;
+            border-radius: 2px;
         }
+        .contact-card h3 {
+            font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+        }
+        .contact-card a {
+            color: var(--navy); text-decoration: none; font-weight: 600;
+            font-size: 0.97rem; border-bottom: 1px solid var(--amber);
+            transition: color 0.2s;
+        }
+        .contact-card a:hover { color: var(--amber); }
+        .contact-card p { color: var(--slate); font-size: 0.95rem; }
+        .address-block {
+            background: white; border: 1px solid var(--border);
+            padding: 28px; border-radius: 2px; margin-bottom: 32px;
+        }
+        .address-block h2 {
+            font-family: 'Playfair Display', serif; font-size: 1.2rem;
+            color: var(--navy); margin-bottom: 14px;
+            padding-bottom: 10px; border-bottom: 2px solid var(--border);
+        }
+        .address-block p { color: var(--slate); font-size: 0.95rem; line-height: 1.8; }
+        footer { background: var(--navy); color: rgba(255,255,255,0.45); text-align: center; padding: 28px; font-size: 0.82rem; }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="/">Home</a>
-    <a href="/research/">Research</a>
-    <a href="/publications/">Publications</a>
-    <a href="/presentations/">Presentations</a>
-    <a href="/contact/">Contact</a>
-</nav>
+<header>
+    <div class="header-inner">
+        <a href="/" class="site-name">Gabriel Geffen</a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/research/">Research</a>
+            <a href="/publications/">Publications</a>
+            <a href="/presentations/">Presentations</a>
+            <a href="/contact/" class="active">Contact</a>
+        </nav>
+    </div>
+</header>
 
-<h1>Contact</h1>
+<div class="page-header">
+    <div class="page-header-inner">
+        <div class="breadcrumb">Contact</div>
+        <h1>Get in Touch</h1>
+    </div>
+</div>
 
-<p>Email: your.email@university.edu</p>
+<main>
+    <div class="contact-grid">
+        <div class="contact-card">
+            <h3>Email</h3>
+            <a href="mailto:gabriel9@arizona.edu">gabriel9@arizona.edu</a>
+        </div>
+        <div class="contact-card">
+            <h3>Phone</h3>
+            <p>(520) 310-6806</p>
+        </div>
+        <div class="contact-card">
+            <h3>LinkedIn</h3>
+            <!-- Update with your actual LinkedIn URL -->
+            <a href="https://linkedin.com/in/your-profile" target="_blank">linkedin.com/in/gabriel-geffen</a>
+        </div>
+        <div class="contact-card">
+            <h3>Google Scholar</h3>
+            <!-- Update with your actual Google Scholar URL -->
+            <a href="https://scholar.google.com" target="_blank">View Profile</a>
+        </div>
+    </div>
 
-<p>LinkedIn: [Add link]</p>
+    <div class="address-block">
+        <h2>Office</h2>
+        <p>
+            Smart Transportation Laboratory (STL)<br>
+            Department of Civil &amp; Architectural Engineering &amp; Mechanics<br>
+            University of Arizona<br>
+            1209 E 2nd St., Room 335<br>
+            Tucson, AZ 85719
+        </p>
+    </div>
+</main>
 
-<p>Google Scholar: [Add link]</p>
-
-<p>
-Department of Civil and Environmental Engineering<br>
-[Your University]
-</p>
+<footer>
+    <p>Gabriel Geffen · University of Arizona · gabriel9@arizona.edu</p>
+</footer>
 
 </body>
 </html>
